@@ -1,0 +1,81 @@
+[21-Nov-2025 19:56:40 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function get_db_connection() in C:\xampp\htdocs\CSDL\public\index.php:31
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\CSDL\public\index.php on line 31
+[21-Nov-2025 19:57:29 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function get_db_connection() in C:\xampp\htdocs\CSDL\public\index.php:31
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\CSDL\public\index.php on line 31
+[21-Nov-2025 19:57:34 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function get_db_connection() in C:\xampp\htdocs\CSDL\public\index.php:31
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\CSDL\public\index.php on line 31
+[21-Nov-2025 19:58:25 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function get_db_connection() in C:\xampp\htdocs\CSDL\public\index.php:31
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\CSDL\public\index.php on line 31
+[21-Nov-2025 20:00:07 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function get_db_connection() in C:\xampp\htdocs\CSDL\public\index.php:31
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\CSDL\public\index.php on line 31
+[21-Nov-2025 20:00:41 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function get_db_connection() in C:\xampp\htdocs\CSDL\public\index.php:31
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\CSDL\public\index.php on line 31
+[21-Nov-2025 20:04:19 Europe/Berlin] PHP Warning:  Undefined array key "port" in C:\xampp\htdocs\CSDL\app\core\db_connection.php on line 18
+[21-Nov-2025 20:04:19 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/1049): Unknown database 'db_employee_infomation_management' in C:\xampp\htdocs\CSDL\app\core\db_connection.php on line 18
+[21-Nov-2025 20:04:19 Europe/Berlin] Database error: Database connection failed: Unknown database 'db_employee_infomation_management'
+[21-Nov-2025 20:04:19 Europe/Berlin] Database connection failed, but continuing...
+[21-Nov-2025 20:04:19 Europe/Berlin] Request: GET /CSDL/public/index.php
+[21-Nov-2025 20:04:19 Europe/Berlin] Routing to: AuthController::login
+[21-Nov-2025 20:05:20 Europe/Berlin] PHP Warning:  Undefined array key "port" in C:\xampp\htdocs\CSDL\app\core\db_connection.php on line 18
+[21-Nov-2025 20:05:20 Europe/Berlin] PHP Warning:  Undefined array key "charset" in C:\xampp\htdocs\CSDL\app\core\db_connection.php on line 25
+[21-Nov-2025 20:05:20 Europe/Berlin] Request: GET /CSDL/public/index.php
+[21-Nov-2025 20:05:20 Europe/Berlin] Routing to: AuthController::login
+[21-Nov-2025 20:06:10 Europe/Berlin] PHP Warning:  Undefined array key "port" in C:\xampp\htdocs\CSDL\app\core\db_connection.php on line 19
+[21-Nov-2025 20:06:10 Europe/Berlin] Request: GET /CSDL/public/index.php
+[21-Nov-2025 20:06:10 Europe/Berlin] Routing to: AuthController::login
+[21-Nov-2025 20:06:52 Europe/Berlin] Request: GET /CSDL/public/index.php
+[21-Nov-2025 20:06:52 Europe/Berlin] Routing to: AuthController::login
+[21-Nov-2025 20:06:54 Europe/Berlin] Request: POST /CSDL/public/index.php
+[21-Nov-2025 20:06:54 Europe/Berlin] Routing to: AuthController::login
+[21-Nov-2025 20:06:55 Europe/Berlin] Request: POST /CSDL/public/index.php
+[21-Nov-2025 20:06:55 Europe/Berlin] Routing to: AuthController::login
+[21-Nov-2025 20:06:57 Europe/Berlin] Request: POST /CSDL/public/index.php
+[21-Nov-2025 20:06:57 Europe/Berlin] Routing to: AuthController::login
+[21-Nov-2025 20:06:57 Europe/Berlin] Request: POST /CSDL/public/index.php
+[21-Nov-2025 20:06:57 Europe/Berlin] Routing to: AuthController::login
+[21-Nov-2025 20:06:57 Europe/Berlin] Request: POST /CSDL/public/index.php
+[21-Nov-2025 20:06:57 Europe/Berlin] Routing to: AuthController::login
+[21-Nov-2025 20:06:57 Europe/Berlin] Request: POST /CSDL/public/index.php
+[21-Nov-2025 20:06:57 Europe/Berlin] Routing to: AuthController::login
+[21-Nov-2025 20:06:57 Europe/Berlin] Request: POST /CSDL/public/index.php
+[21-Nov-2025 20:06:57 Europe/Berlin] Routing to: AuthController::login
+[21-Nov-2025 20:06:58 Europe/Berlin] Request: POST /CSDL/public/index.php
+[21-Nov-2025 20:06:58 Europe/Berlin] Routing to: AuthController::login
+[21-Nov-2025 20:06:58 Europe/Berlin] Request: POST /CSDL/public/index.php
+[21-Nov-2025 20:06:58 Europe/Berlin] Routing to: AuthController::login
+[21-Nov-2025 20:07:04 Europe/Berlin] Request: POST /CSDL/public/index.php
+[21-Nov-2025 20:07:04 Europe/Berlin] Routing to: AuthController::login
+[21-Nov-2025 20:12:59 Europe/Berlin] Request: GET /CSDL/public/index.php
+[21-Nov-2025 20:12:59 Europe/Berlin] Routing to: AuthController::login
+[21-Nov-2025 20:13:01 Europe/Berlin] Request: POST /CSDL/public/index.php
+[21-Nov-2025 20:13:01 Europe/Berlin] Routing to: AuthController::login
+[21-Nov-2025 20:13:03 Europe/Berlin] Request: POST /CSDL/public/index.php
+[21-Nov-2025 20:13:03 Europe/Berlin] Routing to: AuthController::login
+[21-Nov-2025 20:13:04 Europe/Berlin] Request: POST /CSDL/public/index.php
+[21-Nov-2025 20:13:04 Europe/Berlin] Routing to: AuthController::login
+[21-Nov-2025 20:13:05 Europe/Berlin] Request: POST /CSDL/public/index.php
+[21-Nov-2025 20:13:05 Europe/Berlin] Routing to: AuthController::login
+[21-Nov-2025 20:13:06 Europe/Berlin] Request: POST /CSDL/public/index.php
+[21-Nov-2025 20:13:06 Europe/Berlin] Routing to: AuthController::login
+[21-Nov-2025 20:13:09 Europe/Berlin] Request: POST /CSDL/public/index.php
+[21-Nov-2025 20:13:09 Europe/Berlin] Routing to: AuthController::login
+[21-Nov-2025 20:13:10 Europe/Berlin] Request: POST /CSDL/public/index.php
+[21-Nov-2025 20:13:10 Europe/Berlin] Routing to: AuthController::login
+[21-Nov-2025 20:13:12 Europe/Berlin] Request: POST /CSDL/public/index.php
+[21-Nov-2025 20:13:12 Europe/Berlin] Routing to: AuthController::login
+[21-Nov-2025 20:13:13 Europe/Berlin] Request: POST /CSDL/public/index.php
+[21-Nov-2025 20:13:13 Europe/Berlin] Routing to: AuthController::login
+[21-Nov-2025 20:13:14 Europe/Berlin] Request: POST /CSDL/public/index.php
+[21-Nov-2025 20:13:14 Europe/Berlin] Routing to: AuthController::login
