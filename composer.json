@@ -1,0 +1,7 @@
+{
+    "name": "ems/csdl",
+    "description": "Employee Management System",
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}

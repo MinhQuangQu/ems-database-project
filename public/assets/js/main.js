@@ -1,78 +1,107 @@
-const employeeTable = document.getElementById("employeeTable").querySelector("tbody");
-const employeeForm = document.getElementById("employeeForm");
-let editingId = null;
-const API_URL = "employee_api.php";
+/**
+ * public/assets/js/main.js
+ * Main JS entry point cho EMS
+ */
 
-async function loadEmployees() {
-    try {
-        const res = await fetch(API_URL);
-        const employees = await res.json();
-        employeeTable.innerHTML = "";
-        employees.forEach(emp => {
-            const row = document.createElement("tr");
-            row.classList.add("hover:bg-gray-50");
-            row.innerHTML = `
-                <td class="px-6 py-4">${emp.id}</td>
-                <td class="px-6 py-4">${emp.full_name}</td>
-                <td class="px-6 py-4">${emp.gender}</td>
-                <td class="px-6 py-4">${emp.dob}</td>
-                <td class="px-6 py-4">${emp.phone}</td>
-                <td class="px-6 py-4">${emp.email}</td>
-                <td class="px-6 py-4 space-x-2">
-                    <button class="bg-green-500 text-white px-3 py-1 rounded" onclick="editEmployee(${emp.id})">Edit</button>
-                    <button class="bg-red-500 text-white px-3 py-1 rounded" onclick="deleteEmployee(${emp.id})">Delete</button>
-                </td>
-            `;
-            employeeTable.appendChild(row);
+document.addEventListener("DOMContentLoaded", function () {
+
+    // ==========================
+    // 1. Khởi tạo Flatpickr
+    // ==========================
+    if (typeof flatpickr !== "undefined") {
+        const datePickers = document.querySelectorAll(".datepicker");
+        datePickers.forEach(input => {
+            flatpickr(input, { dateFormat: "Y-m-d", allowInput: true, defaultDate: input.value || null });
         });
-    } catch (err) { console.error(err); }
-}
 
-employeeForm.addEventListener("submit", async e => {
-    e.preventDefault();
-    const payload = {
-        full_name: document.getElementById("fullName").value,
-        gender: document.getElementById("gender").value,
-        dob: document.getElementById("dob").value,
-        phone: document.getElementById("phone").value,
-        email: document.getElementById("email").value
-    };
-    try {
-        if (editingId) {
-            await fetch(`${API_URL}?id=${editingId}`, {
-                method: "PUT",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(payload)
+        const timePickers = document.querySelectorAll(".timepicker");
+        timePickers.forEach(input => {
+            flatpickr(input, { enableTime: true, noCalendar: true, dateFormat: "H:i", time_24hr: true });
+        });
+
+        const rangePickers = document.querySelectorAll(".daterange");
+        rangePickers.forEach(input => {
+            flatpickr(input, { mode: "range", dateFormat: "Y-m-d", allowInput: true });
+        });
+    }
+
+    // ==========================
+    // 2. Khởi tạo DataTables
+    // ==========================
+    if (typeof $ !== "undefined" && $.fn.DataTable) {
+        const tables = document.querySelectorAll(".datatable");
+        tables.forEach(table => {
+            $(table).DataTable({
+                responsive: true,
+                pageLength: 15,
+                lengthMenu: [5, 10, 15, 25, 50, 100],
+                order: [],
+                dom: 'Bfrtip',
+                buttons: ['copy', 'csv', 'excel', 'print'],
+                language: { url: "//cdn.datatables.net/plug-ins/1.13.6/i18n/vi.json" }
             });
-            editingId = null;
-        } else {
-            await fetch(API_URL, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(payload)
+        });
+    }
+
+    // ==========================
+    // 3. Flash messages auto hide
+    // ==========================
+    const flashMessages = document.querySelectorAll(".flash-message");
+    flashMessages.forEach(msg => {
+        setTimeout(() => msg.remove(), 5000);
+    });
+
+    // ==========================
+    // 4. Sidebar toggle
+    // ==========================
+    const sidebarToggle = document.querySelector("#sidebarToggle");
+    const sidebar = document.querySelector("#sidebar");
+    if (sidebarToggle && sidebar) {
+        sidebarToggle.addEventListener("click", () => sidebar.classList.toggle("collapsed"));
+    }
+
+    // ==========================
+    // 5. Tooltips (Bootstrap / Tippy.js)
+    // ==========================
+    if (typeof tippy !== "undefined") {
+        tippy('[data-tippy-content]', { placement: 'top', animation: 'shift-away', theme: 'light' });
+    }
+
+    // ==========================
+    // 6. Initialize Charts (Chart.js)
+    // ==========================
+    const charts = document.querySelectorAll(".chartjs-chart");
+    charts.forEach(canvas => {
+        const ctx = canvas.getContext("2d");
+        const chartData = JSON.parse(canvas.dataset.chart || '{}');
+        const chartOptions = JSON.parse(canvas.dataset.options || '{}');
+
+        if (ctx && chartData) {
+            new Chart(ctx, {
+                type: chartData.type || 'bar',
+                data: chartData.data || {},
+                options: chartOptions
             });
         }
-        employeeForm.reset();
-        loadEmployees();
-    } catch (err) { console.error(err); }
-});
+    });
 
-async function deleteEmployee(id) {
-    if(confirm("Are you sure?")) {
-        await fetch(`${API_URL}?id=${id}`, { method: "DELETE" });
-        loadEmployees();
+    // ==========================
+    // 7. Bind Delete confirmation
+    // ==========================
+    const deleteBtns = document.querySelectorAll(".delete-btn");
+    deleteBtns.forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            if (!Helpers.confirmAction("Bạn có chắc muốn xóa bản ghi này?")) {
+                e.preventDefault();
+            }
+        });
+    });
+
+    // ==========================
+    // 8. Initialize Select2 (if used)
+    // ==========================
+    if (typeof $ !== "undefined" && $.fn.select2) {
+        $(".select2").select2({ width: '100%' });
     }
-}
 
-async function editEmployee(id) {
-    const res = await fetch(`${API_URL}?id=${id}`);
-    const emp = await res.json();
-    document.getElementById("fullName").value = emp.full_name;
-    document.getElementById("gender").value = emp.gender;
-    document.getElementById("dob").value = emp.dob;
-    document.getElementById("phone").value = emp.phone;
-    document.getElementById("email").value = emp.email;
-    editingId = id;
-}
-
-document.addEventListener("DOMContentLoaded", loadEmployees);
+});

@@ -1,0 +1,19 @@
+# PHP
+vendor/
+*.log
+*.cache
+*.env
+
+# Database
+*.sql
+*.sqlite
+
+# IDE / OS
+*.idea/
+*.vscode/
+*.DS_Store
+Thumbs.db
+
+# XAMPP / local config
+config/database.php
+config/config.php

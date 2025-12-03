@@ -1,134 +1,83 @@
 <?php
-// public/index.php
+declare(strict_types=1);
 
-// DEBUG: Log all requests
-error_log("=== NEW REQUEST ===");
-error_log("REQUEST_URI: " . ($_SERVER['REQUEST_URI'] ?? 'N/A'));
-error_log("QUERY_STRING: " . ($_SERVER['QUERY_STRING'] ?? 'N/A'));
-error_log("PATH: " . ($_GET['path'] ?? 'N/A'));
-error_log("SCRIPT_NAME: " . ($_SERVER['SCRIPT_NAME'] ?? 'N/A'));
+use Dotenv\Dotenv;
 
-// Rest of your code...
+$rootPath = dirname(__DIR__);
 
-// Khởi tạo session
+require_once $rootPath . '/vendor/autoload.php';
+
+if (class_exists(Dotenv::class) && file_exists($rootPath . '/.env')) {
+    Dotenv::createImmutable($rootPath)->safeLoad();
+}
+
+$config = require $rootPath . '/app/config/config.php';
+
+date_default_timezone_set($config['timezone'] ?? 'UTC');
+ini_set('display_errors', !empty($config['debug']) ? '1' : '0');
+error_reporting(E_ALL);
+
+if (!defined('BASE_PATH')) define('BASE_PATH', $rootPath);
+if (!defined('BASE_URL'))  define('BASE_URL', $config['base_url'] ?? '/');
+
+// ======================
+// SESSION – CHUẨN
+// ======================
+if (!empty($config['session_name'])) session_name($config['session_name']);
+
 if (session_status() === PHP_SESSION_NONE) {
-    session_start([
-        'cookie_httponly' => true,
-        'cookie_secure' => isset($_SERVER['HTTPS']),
-        'use_strict_mode' => true
+    session_set_cookie_params([
+        'lifetime' => $config['session_lifetime'] ?? 0,
+        'path'     => parse_url(BASE_URL, PHP_URL_PATH) ?: '/', // ✔ fix path
+        'secure'   => (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off'),
+        'httponly' => true,
+        'samesite' => 'Lax',
     ]);
+    session_start();
 }
 
-// Debug info
-error_log("=== ACCESS LOG ===");
-error_log("REQUEST_URI: " . ($_SERVER['REQUEST_URI'] ?? ''));
-error_log("PATH: " . ($_GET['path'] ?? ''));
-error_log("SCRIPT_NAME: " . ($_SERVER['SCRIPT_NAME'] ?? ''));
+// ======================
+// Autoload core + helpers
+// ======================
+require_once $rootPath . '/app/core/Model.php';
+require_once $rootPath . '/app/core/Controller.php';
 
-// Load configuration và database connection
-try {
-    // Kiểm tra file config tồn tại
-    $configPath = __DIR__ . '/../config/database.php';
-    if (!file_exists($configPath)) {
-        throw new Exception("Database configuration file not found: " . $configPath);
+spl_autoload_register(function (string $class) use ($rootPath) {
+    $dirs = [
+        '/app/core/',
+        '/app/controllers/',
+        '/app/models/',
+        '/app/services/',
+        '/app/middleware/',
+        '/app/validators/',
+    ];
+    foreach ($dirs as $dir) {
+        $file = $rootPath . $dir . $class . '.php';
+        if (file_exists($file)) {
+            require_once $file;
+            return;
+        }
     }
-    
-    $config = require $configPath;
-    
-    // Kết nối database
-    $conn = new mysqli(
-        $config['host'],
-        $config['username'], 
-        $config['password'],
-        $config['database'],
-        $config['port']
-    );
-    
-    if ($conn->connect_error) {
-        throw new Exception("Database connection failed: " . $conn->connect_error);
-    }
-    
-    // Set charset và timezone
-    $conn->set_charset($config['charset']);
-    $conn->query("SET time_zone = '{$config['timezone']}'");
-    
-    // Set options
-    foreach ($config['options'] as $option => $value) {
-        $conn->options($option, $value);
-    }
-    
-} catch (Exception $e) {
-    die("Database error: " . $e->getMessage());
+});
+
+foreach (glob($rootPath . '/app/helpers/*.php') ?: [] as $helper) {
+    require_once $helper;
 }
 
-// Load controllers
-$controllersPath = __DIR__ . '/../app/controllers/';
-$controllerFiles = [
-    'AuthController.php',
-    'DashboardController.php',
-    'EmployeeController.php', 
-    'DepartmentController.php'
-];
-
-foreach ($controllerFiles as $file) {
-    $filePath = $controllersPath . $file;
-    if (file_exists($filePath)) {
-        require_once $filePath;
-    }
+// ======================
+// URL routing
+// ======================
+$requestUri = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
+$basePath   = rtrim(BASE_URL, '/');
+if ($basePath !== '' && strpos($requestUri, $basePath) === 0) {
+    $requestUri = substr($requestUri, strlen($basePath));
 }
+$requestUri = trim($requestUri, '/');
+if ($requestUri === '') $requestUri = 'dashboard/index';
+$_GET['url'] = $requestUri;
 
-// Xử lý routing
-$path = $_GET['path'] ?? '/';
-
-try {
-    switch ($path) {
-        case '/':
-        case '/login':
-            $authController = new AuthController($conn);
-            $authController->login();
-            break;
-            
-        case '/authenticate':
-            $authController = new AuthController($conn);
-            $authController->authenticate();
-            break;
-            
-        case '/dashboard':
-            $dashboardController = new DashboardController($conn);
-            echo $dashboardController->index();
-            break;
-            
-        case '/employees':
-            $employeeController = new EmployeeController($conn);
-            $employeeController->index();
-            break;
-            
-        case '/departments':
-            $departmentController = new DepartmentController($conn);
-            $departmentController->index();
-            break;
-            
-        case '/logout':
-            $authController = new AuthController($conn);
-            $authController->logout();
-            break;
-            
-        default:
-            // Redirect based on authentication
-            if (isset($_SESSION['admin_id']) && ($_SESSION['authenticated'] ?? false)) {
-                header("Location: index.php?path=/dashboard");
-            } else {
-                header("Location: index.php?path=/login");
-            }
-            exit;
-    }
-} catch (Exception $e) {
-    error_log("Routing error: " . $e->getMessage());
-    
-    // Hiển thị trang lỗi thân thiện
-    if (isset($_SESSION['admin_id']) && ($_SESSION['authenticated'] ?? false)) {
-        echo "<h1>System Error</h1><p>Please try again later.</p>";
-    } else {
-        header("Location: index.php?path=/login");
-    }
-}
+// ======================
+// Run App
+// ======================
+require_once $rootPath . '/app/core/App.php';
+new App();

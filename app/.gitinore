@@ -1,0 +1,54 @@
+# =============================
+# 1. Composer / PHP
+# =============================
+/vendor/
+composer.lock
+
+# File cấu hình nhạy cảm
+.env
+config.php
+
+# Cache & logs
+*.log
+*.cache
+*.tmp
+*.bak
+sessions/
+cache/
+
+# =============================
+# 2. Node.js / Frontend
+# =============================
+/node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build / dist files
+/public/assets/js/dist/
+/public/assets/css/dist/
+
+# =============================
+# 3. IDE / Editor
+# =============================
+.idea/
+*.sublime-project
+*.sublime-workspace
+.vscode/
+*.code-workspace
+
+# =============================
+# 4. OS / System files
+# =============================
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# =============================
+# 5. Temporary / Misc
+# =============================
+*.swp
+*.bak
+*.tmp
+*.old
+*.orig

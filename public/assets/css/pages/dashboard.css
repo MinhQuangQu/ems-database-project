@@ -1,0 +1,134 @@
+/* ==========================
+   Dashboard Container
+========================== */
+.dashboard-container {
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+}
+
+/* ==========================
+   Quick Stats Cards
+========================== */
+.dashboard-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.dashboard-card {
+    background-color: #fff;
+    border-radius: 0.375rem;
+    flex: 1 1 200px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-3px);
+}
+
+.dashboard-card .card-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-card .card-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #212529;
+}
+
+/* ==========================
+   Charts Section
+========================== */
+.dashboard-charts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.chart-card {
+    background-color: #fff;
+    border-radius: 0.375rem;
+    flex: 1 1 400px;
+    padding: 1rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.05);
+}
+
+/* ==========================
+   Tables Section
+========================== */
+.dashboard-table {
+    background-color: #fff;
+    border-radius: 0.375rem;
+    padding: 1rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.05);
+    overflow-x: auto;
+}
+
+.dashboard-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dashboard-table th,
+.dashboard-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #dee2e6;
+    text-align: left;
+}
+
+.dashboard-table th {
+    background-color: #f1f3f5;
+    font-weight: 600;
+}
+
+.dashboard-table tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+/* ==========================
+   Notifications / Alerts
+========================== */
+.dashboard-alert {
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 0.375rem;
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+/* ==========================
+   Responsive
+========================== */
+@media (max-width: 992px) {
+    .dashboard-cards,
+    .dashboard-charts {
+        flex-direction: column;
+    }
+
+    .dashboard-card,
+    .chart-card {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: 1rem;
+    }
+
+    .dashboard-card .card-value {
+        font-size: 1.25rem;
+    }
+}
