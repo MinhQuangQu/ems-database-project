@@ -1,158 +1,206 @@
-🚀 EMS – Employee Management System
+# 🚀 EMS -- Employee Management System
 
-A complete HR management solution designed to help organizations efficiently manage employees, attendance, payroll, and more.
-Built with PHP, MVC architecture, MySQL, and runs on XAMPP.
+[![PHP](https://img.shields.io/badge/PHP-8.x-blue?logo=php)]()\
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)]()\
+[![Build](https://img.shields.io/badge/Build-Passing-brightgreen)]()
 
-📌 1. Key Features
-👤 Employee Management
+A complete Human Resource Management System designed to help
+organizations efficiently manage employees, attendance, payroll,
+projects, and analytics.\
+Built with **PHP**, **MVC Architecture**, **MySQL**, and runs on
+**XAMPP**.
 
-Add / edit / delete employees
+------------------------------------------------------------------------
 
-Personal info, position, salary, joining date
+## 📚 **Table of Contents**
 
-Track employee status (active / inactive)
+-   [✨ Features](#-features)\
+-   [⚙️ Installation Guide](#️-installation-guide)\
+-   [📁 Project Structure](#-project-structure)\
+-   [🌐 Access Information](#-access-information)\
+-   [🖼 Screenshots](#-screenshots)\
+-   [🤝 Contributing](#-contributing)\
+-   [📄 License](#-license)
 
-🕒 Attendance Tracking
+------------------------------------------------------------------------
 
-Daily check-in / check-out
+# ✨ **Features**
 
-Track worked hours and absence
+## 👤 **1. Employee Management**
 
-Monthly attendance reports
+-   Add, edit, delete employees\
+-   Store personal details, salary, position, start date\
+-   Manage active/inactive employee status
 
-Exportable data
+## 🕒 **2. Attendance Tracking**
 
-🏢 Department Management
+-   Check-in / Check-out\
+-   Track working hours & absences\
+-   Monthly attendance summaries\
+-   Exportable attendance reports
 
-Manage departments
+## 🏢 **3. Department Management**
 
-Assign employees to departments
+-   Create and manage departments\
+-   Assign employees to departments\
+-   Track department heads & total members
 
-Track department heads and employee count
+## 💰 **4. Payroll System**
 
-💰 Payroll System
+-   Monthly salary calculation\
+-   Base salary + overtime + bonus\
+-   Payroll generation & history tracking
 
-Monthly salary calculation
+## 📁 **5. Project Management**
 
-Flexible formula: base salary + overtime + bonus
+-   Create / update / manage projects\
+-   Assign employees to projects\
+-   Track project deadlines and overall progress
 
-Generate payroll reports
+## 📊 **6. Reports & Dashboard**
 
-Store payment history
+-   HR analytics & summary\
+-   Staff distribution charts\
+-   Attendance & payroll visualizations\
+-   Filter by date range
 
-📁 Project Management
+------------------------------------------------------------------------
 
-Create and manage projects
+# ⚙️ **Installation Guide**
 
-Assign employees to tasks/projects
+## 🔧 **Requirements**
 
-Track deadlines and progress
+-   PHP 8.x\
+-   MySQL\
+-   XAMPP (Apache + MySQL)\
+-   Browser\
+-   Composer (optional)
 
-📊 Reports & Dashboard
+------------------------------------------------------------------------
 
-HR analytics overview
+## 🛠 **Step 1 --- Clone the Repository**
 
-Department statistics
-
-Employee performance reports
-
-Time-based data filtering
-
-⚙️ 2. How to Set Up (XAMPP)
-🔧 Requirements
-
-PHP 8.x
-
-MySQL
-
-XAMPP (Apache + MySQL)
-
-Any modern browser
-
-Composer (optional, depending on project setup)
-
-🛠 Step 1 – Clone the Project
+``` bash
 git clone https://github.com/<your-username>/ems.git
+```
 
+Or download the ZIP from GitHub.
 
-Or download and extract the ZIP file from GitHub.
+------------------------------------------------------------------------
 
-📂 Step 2 – Move Project to XAMPP
+## 📂 **Step 2 --- Move Project to XAMPP**
 
 Place the project folder inside:
 
-xampp/htdocs/ems
+    xampp/htdocs/ems
 
-🗄 Step 3 – Import the Database
+------------------------------------------------------------------------
 
-Open phpMyAdmin:
-👉 http://localhost/phpmyadmin
+## 🗄 **Step 3 --- Import the Database**
 
-Create a new database (e.g., ems_db)
+1.  Open **phpMyAdmin** → http://localhost/phpmyadmin\
 
-Import the SQL file located in:
-database/ems.sql
+2.  Create a database named: `ems_db`\
 
-🧰 Step 4 – Configure Database Connection
+3.  Import file:
 
-Edit the file:
+        database/ems.sql
 
-app/config/database.php
+------------------------------------------------------------------------
 
+## 🧰 **Step 4 --- Configure Database Connection**
 
-Update the connection details:
+Open:
 
+    app/config/database.php
+
+Replace the connection settings:
+
+``` php
 return new PDO(
     "mysql:host=localhost;dbname=ems_db;charset=utf8",
     "root",
     ""
 );
+```
 
+*(Default XAMPP: user = `root`, password = empty.)*
 
-(Default XAMPP user is root with no password.)
+------------------------------------------------------------------------
 
-🔌 Step 5 – Start XAMPP Services
+## 🔌 **Step 5 --- Start XAMPP**
 
-Open XAMPP Control Panel and start:
+-   Start **Apache**\
+-   Start **MySQL**
 
-Apache
+------------------------------------------------------------------------
 
-MySQL
+## 🌐 **Step 6 --- Run the Application**
 
-🌐 Step 6 – Run the Application
+Visit:
 
-Open your browser:
+👉 **http://localhost/ems**
 
-👉 http://localhost/ems
+You will be redirected to the Login or Dashboard depending on your
+routing setup.
 
-If using an MVC router, this will direct you to the Login or Dashboard page.
+------------------------------------------------------------------------
 
-👥 Default Admin Credentials
-Email: admin@ems.com
-Password: admin123
+# 🌐 **Access Information**
 
+### 👥 **Default Admin Login**
 
-(Update if your project uses different credentials.)
+    Email: admin@ems.com
+    Password: admin123
 
-📝 3. Suggested Folder Structure
-ems/
-│── app/
-│   ├── controllers/
-│   ├── models/
-│   ├── views/
-│   ├── core/
-│   └── config/
-│── public/
-│── database/
-│── vendor/
-│── .htaccess
-│── README.md
+------------------------------------------------------------------------
 
-🤝 4. Contributing
+# 📁 **Project Structure**
 
-Contributions are welcome!
-Feel free to submit a pull request or open an issue for suggestions and bug reports.
+    ems/
+    │── app/
+    │   ├── controllers/
+    │   ├── models/
+    │   ├── views/
+    │   ├── core/
+    │   └── config/
+    │── public/
+    │── database/
+    │── vendor/
+    │── .htaccess
+    │── README.md
 
-📄 5. License
+------------------------------------------------------------------------
 
-MIT License – open for educational and commercial use.
+# 🖼 **Screenshots**
+
+### 🔐 Login Page
+
+![Login Screenshot](https://placehold.co/800x400?text=Login+Page)
+
+### 🏠 Dashboard
+
+![Dashboard Screenshot](https://placehold.co/800x400?text=Dashboard)
+
+### 👤 Employee Management
+
+![Employee
+Screenshot](https://placehold.co/800x400?text=Employee+Management)
+
+------------------------------------------------------------------------
+
+# 🤝 **Contributing**
+
+Contributions are welcome!\
+Feel free to:
+
+-   Submit pull requests\
+-   Open issues\
+-   Suggest new features
+
+------------------------------------------------------------------------
+
+# 📄 **License**
+
+Licensed under the **MIT License**.\
+Free for personal, educational, and commercial use.
