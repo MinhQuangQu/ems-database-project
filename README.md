@@ -176,7 +176,7 @@ routing setup.
 
 ### 🔐 Login Page
 
-![Login Screenshot](https://placehold.co/800x400?text=Login+Page)
+![Login Screenshot](https://github.com/MinhQuangQu/ems-database-project/blob/05a5a1372527d3b81524dafdc9fb8683d5e6e275/public/assets/images/Screenshot%202025-12-04%20223457.png)
 
 ### 🏠 Dashboard
 
@@ -204,3 +204,4 @@ Feel free to:
 
 Licensed under the **MIT License**.\
 Free for personal, educational, and commercial use.
+
