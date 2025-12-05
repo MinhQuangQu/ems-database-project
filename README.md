@@ -30,14 +30,13 @@ Built with **PHP**, **MVC Architecture**, **MySQL**, and runs on
 
 -   Add, edit, delete employees\
 -   Store personal details, salary, position, start date\
--   Manage active/inactive employee status
+-   Show basic details of employees
 
 ## 🕒 **2. Attendance Tracking**
 
 -   Check-in / Check-out\
 -   Track working hours & absences\
--   Monthly attendance summaries\
--   Exportable attendance reports
+-   Show attendance status on browser\
 
 ## 🏢 **3. Department Management**
 
@@ -48,21 +47,19 @@ Built with **PHP**, **MVC Architecture**, **MySQL**, and runs on
 ## 💰 **4. Payroll System**
 
 -   Monthly salary calculation\
--   Base salary + overtime + bonus\
--   Payroll generation & history tracking
+-   Base salary + overtime + bonus - deduction\
+-   Payroll generation & history tracking\
+-   Indicate payroll status Paid - Unpaid - Pending
 
 ## 📁 **5. Project Management**
 
 -   Create / update / manage projects\
 -   Assign employees to projects\
--   Track project deadlines and overall progress
+-   Track project budget and departments
 
 ## 📊 **6. Reports & Dashboard**
 
--   HR analytics & summary\
--   Staff distribution charts\
--   Attendance & payroll visualizations\
--   Filter by date range
+-   Coming soon!
 
 ------------------------------------------------------------------------
 
@@ -81,7 +78,7 @@ Built with **PHP**, **MVC Architecture**, **MySQL**, and runs on
 ## 🛠 **Step 1 --- Clone the Repository**
 
 ``` bash
-git clone https://github.com/<your-username>/ems.git
+git clone https://github.com/MinhQuangQu/ems-database-project.git
 ```
 
 Or download the ZIP from GitHub.
@@ -90,21 +87,24 @@ Or download the ZIP from GitHub.
 
 ## 📂 **Step 2 --- Move Project to XAMPP**
 
-Place the project folder inside:
+-   Rename folder to **CSDL**
+-   Place the project folder inside:
 
-    xampp/htdocs/ems
+    xampp/htdocs/
 
 ------------------------------------------------------------------------
 
 ## 🗄 **Step 3 --- Import the Database**
 
-1.  Open **phpMyAdmin** → http://localhost/phpmyadmin\
+1.  Open **MySQL 9.1**
 
-2.  Create a database named: `ems_db`\
+2.  Install database folder: `db_employee_infomation_manager`\
 
 3.  Import file:
 
-        database/ems.sql
+        schema.sql
+        seed.sql
+    
 
 ------------------------------------------------------------------------
 
@@ -112,19 +112,9 @@ Place the project folder inside:
 
 Open:
 
-    app/config/database.php
+    http://localhost/phpmyadmin
 
-Replace the connection settings:
-
-``` php
-return new PDO(
-    "mysql:host=localhost;dbname=ems_db;charset=utf8",
-    "root",
-    ""
-);
-```
-
-*(Default XAMPP: user = `root`, password = empty.)*
+Check if database `db_employee_infomation_manager` is available on **phpMyAdmin**
 
 ------------------------------------------------------------------------
 
@@ -139,7 +129,7 @@ return new PDO(
 
 Visit:
 
-👉 **http://localhost/ems**
+👉 **http://localhost/CSDL/public**
 
 You will be redirected to the Login or Dashboard depending on your
 routing setup.
@@ -148,10 +138,9 @@ routing setup.
 
 # 🌐 **Access Information**
 
-### 👥 **Default Admin Login**
+### 👥 **Register/Login**
 
-    Email: admin@ems.com
-    Password: admin123
+    Register with typing username and password
 
 ------------------------------------------------------------------------
 
@@ -178,14 +167,29 @@ routing setup.
 
 ![Login Screenshot](https://github.com/MinhQuangQu/ems-database-project/blob/05a5a1372527d3b81524dafdc9fb8683d5e6e275/public/assets/images/Screenshot%202025-12-04%20223457.png)
 
+### 🕒 Attendance Management
+
+![Attendance Screenshot](https://github.com/MinhQuangQu/ems-database-project/blob/c8dc1921c722f7fb5d418231c66f3a668a59d0e8/public/assets/images/Attendance.png)
+
 ### 🏠 Dashboard
 
-![Dashboard Screenshot](https://placehold.co/800x400?text=Dashboard)
+![Dashboard Screenshot](https://github.com/MinhQuangQu/ems-database-project/blob/c8dc1921c722f7fb5d418231c66f3a668a59d0e8/public/assets/images/Dashboard.png)
 
 ### 👤 Employee Management
 
-![Employee
-Screenshot](https://placehold.co/800x400?text=Employee+Management)
+![Employee Screenshot](https://github.com/MinhQuangQu/ems-database-project/blob/c8dc1921c722f7fb5d418231c66f3a668a59d0e8/public/assets/images/Employee.png)
+
+### 🏢 Department Management
+
+![Department Screenshot](https://github.com/MinhQuangQu/ems-database-project/blob/c8dc1921c722f7fb5d418231c66f3a668a59d0e8/public/assets/images/Department.png)
+
+### 📁 Project Management
+
+![Project Screenshot](https://github.com/MinhQuangQu/ems-database-project/blob/c8dc1921c722f7fb5d418231c66f3a668a59d0e8/public/assets/images/Project.png)
+
+### 💰 Payroll Management
+
+![Payroll Screenshot](https://github.com/MinhQuangQu/ems-database-project/blob/c8dc1921c722f7fb5d418231c66f3a668a59d0e8/public/assets/images/Payroll.png)
 
 ------------------------------------------------------------------------
 
@@ -204,4 +208,5 @@ Feel free to:
 
 Licensed under the **MIT License**.\
 Free for personal, educational, and commercial use.
+
 
