@@ -28,36 +28,35 @@ Built with **PHP**, **MVC Architecture**, **MySQL**, and runs on
 
 ## 👤 **1. Employee Management**
 
--   Add, edit, delete employees\
--   Store personal details, salary, position, start date\
+-   Add, edit, and delete employees
+-   Store personal details, salary, position, and start date
 -   Show basic details of employees
 
 ## 🕒 **2. Attendance Tracking**
 
--   Check-in / Check-out\
--   Track working hours & absences\
--   Show attendance status on browser\
-
+-   Check-in / Check-out
+-   Track working hours & absences
+-   Show attendance status on the browser
 ## 🏢 **3. Department Management**
 
--   Create and manage departments\
--   Assign employees to departments\
+-   Create and manage departments
+-   Assign employees to departments
 -   Track department heads & total members
 
 ## 💰 **4. Payroll System**
 
--   Monthly salary calculation\
--   Base salary + overtime + bonus - deduction\
--   Payroll generation & history tracking\
--   Indicate payroll status Paid - Unpaid - Pending
+-   Monthly salary calculation
+-   Base salary + overtime + bonus - deduction
+-   Payroll generation & history tracking
+-   Indicate payroll status: Paid - Unpaid - Pending
 
 ## 📁 **5. Project Management**
 
--   Create / update / manage projects\
--   Assign employees to projects\
+-   Create/update/manage projects
+-   Assign employees to projects
 -   Track project budget and departments
 
-## 📊 **6. Reports & Dashboard**
+## 📊 **6. Reports**
 
 -   Coming soon!
 
@@ -67,10 +66,10 @@ Built with **PHP**, **MVC Architecture**, **MySQL**, and runs on
 
 ## 🔧 **Requirements**
 
--   PHP 8.x\
--   MySQL\
--   XAMPP (Apache + MySQL)\
--   Browser\
+-   PHP 8.x
+-   MySQL
+-   XAMPP (Apache + MySQL)
+-   Browser
 -   Composer (optional)
 
 ------------------------------------------------------------------------
@@ -98,7 +97,7 @@ Or download the ZIP from GitHub.
 
 1.  Open **MySQL 9.1**
 
-2.  Install database folder: `db_employee_infomation_manager`\
+2.  Install database folder: `db_employee_infomation_manager`
 
 3.  Import file:
 
@@ -120,7 +119,7 @@ Check if database `db_employee_infomation_manager` is available on **phpMyAdmin*
 
 ## 🔌 **Step 5 --- Start XAMPP**
 
--   Start **Apache**\
+-   Start **Apache**
 -   Start **MySQL**
 
 ------------------------------------------------------------------------
@@ -131,7 +130,7 @@ Visit:
 
 👉 **http://localhost/CSDL/public**
 
-You will be redirected to the Login or Dashboard depending on your
+You will be redirected to the Login or Dashboard, depending on your
 routing setup.
 
 ------------------------------------------------------------------------
@@ -140,7 +139,7 @@ routing setup.
 
 ### 👥 **Register/Login**
 
-    Register with typing username and password
+    Register by typing your username and password
 
 ------------------------------------------------------------------------
 
@@ -192,6 +191,11 @@ routing setup.
 ![Payroll Screenshot](https://github.com/MinhQuangQu/ems-database-project/blob/c8dc1921c722f7fb5d418231c66f3a668a59d0e8/public/assets/images/Payroll.png)
 
 ------------------------------------------------------------------------
+### Youtube Link 
+
+[![Watch the video](https://www.youtube.com/watch?v=pB4x5NXqU5A)](https://youtu.be/pB4x5NXqU5A)
+
+-----------------------------------------------------------------------
 
 # 🤝 **Contributing**
 
@@ -208,5 +212,6 @@ Feel free to:
 
 Licensed under the **MIT License**.\
 Free for personal, educational, and commercial use.
+
 
 
