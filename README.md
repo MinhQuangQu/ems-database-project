@@ -97,7 +97,7 @@ Or download the ZIP from GitHub.
 
 1.  Open **MySQL 9.1**
 
-2.  Install database folder: `db_employee_infomation_manager`
+2.  Install database folder: `SQLr`
 
 3.  Import file:
 
@@ -212,6 +212,7 @@ Feel free to:
 
 Licensed under the **MIT License**.\
 Free for personal, educational, and commercial use.
+
 
 
 
