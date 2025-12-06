@@ -1,0 +1,9 @@
+project_id,project_name,start_date,end_date,budget,department_id_project
+6.0,Skill Matrix & Upskill Roadmap,2024-01-10,2024-06-30,120000.0,1
+1.0,SmartFactory Sensor Hub,2024-01-15,2024-12-15,500000.0,2
+2.0,Unified Login Gateway,2024-03-01,2025-02-28,750000.0,2
+5.0,Customer Journey Mapping Initiativeh,2024-04-01,2024-10-31,300000.0,4
+8.0,Real-Time Fleet Tracker,2024-06-01,2024-12-31,180000.0,2
+3.0,B2B Lead Qualification Framework,2024-02-01,2024-08-01,200000.0,3
+4.0,GenZ Social Engagement Program,2024-05-01,2024-09-30,150000.0,4
+7.0,Automated Expense Audit System,2024-09-01,2024-11-30,50000.0,5

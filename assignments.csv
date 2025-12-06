@@ -1,0 +1,31 @@
+assign_id,employee_id,project_id,role,assigned_date,hours_worked
+23,1,6.0,Project Sponsor,2024-01-10,40.0
+24,2,6.0,HR Lead,2024-01-10,120.0
+25,3,6.0,User Testing,2024-01-15,90.0
+2,4,1.0,Project Lead,2024-01-15,150.5
+7,4,2.0,Architect,2024-03-01,80.0
+3,5,1.0,Senior Developer,2024-01-15,220.0
+8,5,2.0,Lead Developer,2024-03-01,160.0
+21,5,5.0,Backend Developer,2024-04-05,70.0
+4,6,1.0,Junior Developer,2024-01-20,180.0
+32,6,8.0,Developer,2024-06-01,65.0
+5,7,1.0,QA Lead,2024-01-20,190.5
+33,7,8.0,QA,2024-06-05,70.0
+9,8,2.0,DevOps Specialist,2024-03-05,140.0
+31,8,8.0,DevOps Lead,2024-06-01,80.0
+11,9,3.0,Project Manager,2024-02-01,100.0
+12,10,3.0,User Testing,2024-02-15,60.5
+34,10,5.0,Sales Consultant,2024-04-15,30.0
+13,11,3.0,Sales Tester,2024-02-15,45.0
+15,12,4.0,Campaign Lead,2024-05-01,110.0
+19,12,5.0,Marketing Lead,2024-04-01,50.0
+16,13,4.0,Content Writer,2024-05-01,130.0
+35,13,6.0,Content Migration,2024-03-01,55.5
+17,14,4.0,Social Media,2024-05-10,120.0
+20,15,5.0,SEO Lead,2024-04-01,90.0
+27,16,7.0,Audit Lead,2024-09-01,0.0
+28,17,7.0,Analyst,2024-09-01,0.0
+36,17,3.0,Financial Analyst,2024-02-05,25.0
+29,18,7.0,Accountant,2024-09-01,0.0
+37,19,7.0,Payroll Data,2024-09-01,0.0
+38,20,6.0,HR Data Entry,2024-02-01,75.0
